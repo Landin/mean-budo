@@ -1,0 +1,35 @@
+<div ng-controller="mcCardCtrl" data-ng-init="find()">
+    
+<table class="table">
+    <tr>
+        <td>RFID<input  type="text" ng-model="newcard.rfid" autofocus="on" ng-enter="add()"/></td>
+        <td>Fnamn<input type="text" ng-model="newcard.fnamn" ng-enter="add()"/> </td>
+        <td>Enamn<input type="text" ng-model="newcard.enamn" ng-enter="add()"/></td>
+        <td>Email<input type="text" ng-model="newcard.email" ng-enter="add()"/></td>
+    </tr>
+</table>
+    {{ $scope.test }}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Kort</div>
+    <div class="panel-body">
+    
+    <table class="table table-striped">
+        <tr>
+            <th>RFID</th>
+            <th>Fnamn</th>
+            <th>Enamn</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="card in cards">
+            <td>{{card.rfid}}</td>
+            <td>{{card.fnamn}}</td>
+            <td>{{card.enamn}}</td>
+            <td>{{card.email}}</td>
+            <td><button class="btn btn-xm btn-danger" ng-click="remove(card)">Radera</button></td> 
+        </tr>        
+</table>
+</div>
+</div>
+</div>

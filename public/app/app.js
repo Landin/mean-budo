@@ -31,8 +31,8 @@ app.config(function ($stateProvider, $locationProvider) {
                        controller: 'mvSignupCtrl' })
     .state('profile', { url: '/profile', templateUrl: '/app/account/profile.html',
       controller: 'mvProfileCtrl', resolve: routeRoleChecks.user })
-    .state('kort'), { url: '/cards', templateUrl: '/app/cards/cards.html', 
-        controller: 'mvCardCtrl', resolve: routeRoleChecks.admin });
+    .state('kort', { url: '/cards', templateUrl: '/app/cards/cards.html',
+        controller: 'mvCardCtrl', resolve: routeRoleChecks.admin});
 });
 
 app.run(function ($rootScope, $state, mvNotifier) {
