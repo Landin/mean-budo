@@ -18,7 +18,7 @@ app.config(function ($stateProvider, $locationProvider) {
     }},
     user: {auth:
       function (mvAuth) {
-        mvAuth.authorizeAuthenticatedUserForRoute()
+        return mvAuth.authorizeAuthenticatedUserForRoute()
     }}
   };
 
@@ -30,7 +30,9 @@ app.config(function ($stateProvider, $locationProvider) {
     .state('signup', { url: '/signup', templateUrl: '/app/account/signup.html',
                        controller: 'mvSignupCtrl' })
     .state('profile', { url: '/profile', templateUrl: '/app/account/profile.html',
-      controller: 'mvProfileCtrl', resolve: routeRoleChecks.user });
+      controller: 'mvProfileCtrl', resolve: routeRoleChecks.user })
+    .state('kort'), { url: '/cards', templateUrl: '/app/cards/cards.html', 
+        controller: 'mvCardCtrl', resolve: routeRoleChecks.admin });
 });
 
 app.run(function ($rootScope, $state, mvNotifier) {
