@@ -1,22 +1,32 @@
 var auth = require('./auth'),
   users = require('../controllers/users'),
   cards = require('../controllers/cards'),
+  swipes = require('../controllers/swipe'),
+  loggswipes = require('../controllers/loggswipe'),
+    
   mongoose = require('mongoose'),
   User = mongoose.model('User'),
   Card = mongoose.model('Card'),
+  Loggswipe = mongoose.model('Loggswipe'),
   data = { mvdata: {} };
 
 module.exports = function(app) {
 
+  // User
   app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
   app.post('/api/users', users.createUser);
   app.put('/api/users', users.updateUser);
 
+  // Card
   app.get('/api/cards', cards.all);
   app.delete('/api/cards/:cardId', cards.destroy);
   app.post('/api/cards', cards.create);
   // app.put('', cards.update);  
   app.param('cardId', cards.card);
+
+  // Swipe
+  app.post('/api/swipe', swipes.process);
+  app.get('/api/loggswipes', loggswipes.all);
 
     
 //  app.route('/api/cards')

@@ -12,7 +12,9 @@ app.factory('mvUserListCtrl', mvUserListCtrl);
 
 // Egna
 app.controller('mvCardCtrl', mvCardCtrl);
+app.controller('mvLoggswipeCtrl', mvLoggswipeCtrl);
 app.factory('mvCard', mvCard);
+app.factory('mvLoggswipe', mvLoggswipe);
 
 
 app.config(function ($stateProvider, $locationProvider) {
@@ -39,7 +41,8 @@ app.config(function ($stateProvider, $locationProvider) {
     .state('kort', { url: '/cards', templateUrl: '/app/cards/cards.html',
         controller: 'mvCardCtrl', resolve: routeRoleChecks.admin})
     .state('Swipe', { url: '/swipe', templateUrl: '/app/swipe/swipe.html',
-        controller: 'mvSwipeCtrl'});
+        controller: 'mvSwipeCtrl'})
+    .state('Loggswipe', { url: '/loggswipe', templateUrl: '/app/loggswipe/loggswipe.html', controller: 'mvLoggswipeCtrl'});
 });
 
 app.run(function ($rootScope, $state, mvNotifier) {
