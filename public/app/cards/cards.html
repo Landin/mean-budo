@@ -1,11 +1,13 @@
-<div ng-controller="mcCardCtrl" data-ng-init="find()">
+<div ng-controller="mvCardCtrl" data-ng-init="find()">
     
 <table class="table">
     <tr>
-        <td>RFID<input  type="text" ng-model="newcard.rfid" autofocus="on" ng-enter="add()"/></td>
-        <td>Fnamn<input type="text" ng-model="newcard.fnamn" ng-enter="add()"/> </td>
-        <td>Enamn<input type="text" ng-model="newcard.enamn" ng-enter="add()"/></td>
-        <td>Email<input type="text" ng-model="newcard.email" ng-enter="add()"/></td>
+        <td>RFID<input  type="text" ng-model="newcard.rfid" autofocus="on" ui-keypress="{13:'add()'}"/></td>
+        
+        <td>Fnamn<input type="text" ng-model="newcard.fnamn" ui-keypress="{13:'add()'}"/> </td>
+
+        <td>Enamn<input type="text" ng-model="newcard.enamn" ui-keypress="{13:'add()'}"/></td>
+        <td>Email<input type="text" ng-model="newcard.email" ui-keypress="{13:'add()'}"/></td>
     </tr>
 </table>
     {{ $scope.test }}

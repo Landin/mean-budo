@@ -1,14 +1,13 @@
 'use strict';
 
 //Articles service used for articles REST endpoint
-angular.module('app').factory('Cards', ['$resource',
-  function($resource) {
-    return $resource('rfid/cards/:cardId', {
+
+var mvCard = function($resource) {
+    return $resource('api/cards/:cardId', {
       cardId: '@_id'
     }, {
       update: {
         method: 'PUT'
       }
     });
-  }
-]);
+}

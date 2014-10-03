@@ -1,8 +1,8 @@
-angular.module('app').controller('mvCardCtrl', function($scope, $location, Cards){
+var mvCardCtrl = function($scope, $location, mvCard){
     'use strict';
     
     $scope.find = function() {
-     Cards.query(function(cards) {
+     mvCard.query(function(cards) {
         $scope.cards = cards;
       });
     };
@@ -13,7 +13,7 @@ angular.module('app').controller('mvCardCtrl', function($scope, $location, Cards
     
     $scope.add = function() {       
         //if (isValid) {
-        var card = new Cards({
+        var card = new mvCard({
           rfid:  $scope.newcard.rfid,
           fnamn: $scope.newcard.fnamn,
           enamn: $scope.newcard.enamn,
@@ -40,9 +40,9 @@ angular.module('app').controller('mvCardCtrl', function($scope, $location, Cards
         }
       } else {
         $scope.card.$remove(function(response) {
-          $location.path('/rfid/cards');
+          $location.path('/api/cards');
         });
       }
     };
 
-});
+};

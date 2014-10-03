@@ -10,6 +10,11 @@ app.factory('mvAuth', mvAuth);
 app.factory('mvUser', mvUser);
 app.factory('mvUserListCtrl', mvUserListCtrl);
 
+// Egna
+app.controller('mvCardCtrl', mvCardCtrl);
+app.factory('mvCard', mvCard);
+
+
 app.config(function ($stateProvider, $locationProvider) {
   var routeRoleChecks = {
     admin: {auth:
