@@ -24,6 +24,8 @@
     "angular-resource": "latest",
     "angular-mocks": "latest",
     "angular-ui-router": "~0.2.11",
-    "angular-ui-utils": "bower"
+    "angular-ui-utils": "bower",
+    "angular-xml": "~1.0.4",
+    "x2js": "~1.1.7"
   }
 }

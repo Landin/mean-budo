@@ -39,16 +39,16 @@ app.config(function ($stateProvider, $locationProvider) {
     .state('profile', { url: '/profile', templateUrl: '/app/account/profile.html',
       controller: 'mvProfileCtrl', resolve: routeRoleChecks.user })
     .state('kort', { url: '/cards', templateUrl: '/app/cards/cards.html',
-        controller: 'mvCardCtrl', resolve: routeRoleChecks.admin})
+        controller: 'mvCardCtrl', resolve: routeRoleChecks.admin })
     .state('Swipe', { url: '/swipe', templateUrl: '/app/swipe/swipe.html',
         controller: 'mvSwipeCtrl'})
-    .state('Loggswipe', { url: '/loggswipe', templateUrl: '/app/loggswipe/loggswipe.html', controller: 'mvLoggswipeCtrl'});
+    .state('Loggswipe', { url: '/loggswipe', templateUrl: '/app/loggswipe/loggswipe.html', controller: 'mvLoggswipeCtrl', resolve: routeRoleChecks.admin });
 });
 
 app.run(function ($rootScope, $state, mvNotifier) {
   $rootScope.$on('$stateChangeError', function (event, toState, fromState, error) {
     if (error) {
-      mvNotifier.error('Sorry, you are probably not allowed here');
+      mvNotifier.error('Ej behörig att visa denna sidan');
       $state.go('home');
     }
   })
