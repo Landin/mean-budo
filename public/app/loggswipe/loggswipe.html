@@ -1,4 +1,4 @@
-<div ng-controller="mvLoggswipeCtrl" data-ng-init="find()">
+<div data-ng-init="vm.find()">
     
 <div class="panel panel-primary">
     <div class="panel-heading">Swipes</div>
@@ -10,7 +10,7 @@
             <th>Fnamn</th>
             <th>Enamn</th>
         </tr>
-        <tr ng-repeat="loggswipe in loggswipes">
+        <tr ng-repeat="loggswipe in vm.loggswipes">
             <td>{{loggswipe.rfid}}</td>
             <td>{{loggswipe.fnamn}}</td>
             <td>{{loggswipe.enamn}}</td>
@@ -18,4 +18,5 @@
 </table>
 </div>
 </div>
+<button class="btn btn-xm btn-danger" ng-click="vm.getloggswipe()">Hämta Logg</button>
 </div>

@@ -1,3 +1,5 @@
+define([], function () {
+
 function mvSwipeCtrl($scope, $http){
     'use strict';
     $scope.message = {};
@@ -8,3 +10,5 @@ function mvSwipeCtrl($scope, $http){
         });
     };
 };
+    return mvSwipeCtrl;
+});

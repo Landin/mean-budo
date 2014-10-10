@@ -1,6 +1,10 @@
+define([], function () {
+
 'use strict';
 
 //Articles service used for articles REST endpoint
+
+
 function mvLoggswipe($resource) {
     return $resource('api/loggswipes/:loggswipeId', {
       loggswipeId: '@_id'
@@ -9,4 +13,6 @@ function mvLoggswipe($resource) {
         method: 'PUT'
       }
     });
-  };
+  }
+    return mvLoggswipe;
+});

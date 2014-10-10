@@ -1,8 +1,10 @@
+define([], function () {
+
 'use strict';
 
 //Articles service used for articles REST endpoint
 
-var mvCard = function($resource) {
+function mvCard($resource) {
     return $resource('api/cards/:cardId', {
       cardId: '@_id'
     }, {
@@ -11,3 +13,5 @@ var mvCard = function($resource) {
       }
     });
 }
+    return mvCard;
+});

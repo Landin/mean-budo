@@ -1,4 +1,6 @@
-var mvCardCtrl = function($scope, $location, mvCard){
+define([], function () {
+
+function mvCardCtrl($scope, $location, mvCard){
     'use strict';
     
     $scope.find = function() {
@@ -44,5 +46,6 @@ var mvCardCtrl = function($scope, $location, mvCard){
         });
       }
     };
-
-};
+  }
+    return mvCardCtrl;
+});
