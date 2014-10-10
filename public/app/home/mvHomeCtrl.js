@@ -20,4 +20,5 @@ define(['xml2json'], function () {
   }
 
   return mvHomeCtrl;
+  // test för anders
 });
