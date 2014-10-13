@@ -13,7 +13,8 @@ define([
           templateUrl: '/app/loggswipe/loggswipe.html',
           controller:  'mvLoggswipeCtrl',
           controllerAs: 'vm',
-          resolve:     routeRoleChecks.admin
+          label: 'loggswipe',
+//          resolve:     routeRoleChecks.admin
         })
 
     })

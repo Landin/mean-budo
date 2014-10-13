@@ -1,8 +1,10 @@
-<div data-ng-init="vm.find()">
-<div ng-controller="vm.loggpage">
-<pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination></div>
-    
-<div class="panel panel-primary">
+<div data-ng-init="vm.currentPage=[3]">
+
+<pagination total-items="vm.totalItems" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></pagination>
+
+sida:{{vm.currentPage}}Antal/sida:{{vm.itemsPerPage}}Total:{{vm.totalItems}}</div>  
+
+   <div class="panel panel-primary">
     <div class="panel-heading">Swipes</div>
     <div class="panel-body">
     

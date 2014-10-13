@@ -9,7 +9,9 @@ require.config({
     uiBootstrap: '../vendor/angular-bootstrap/ui-bootstrap-tpls.min',
     jquery : '../vendor/jquery/dist/jquery.min',
     toastr: '../vendor/toastr/toastr.min',
-    uiutils: '/vendor/ui-utils/ui-utils.min'
+    uiutils: '/vendor/ui-utils/ui-utils.min',
+    xml2json: '../vendor/x2js/xml2json'
+
   },
 
   shim: {
@@ -20,7 +22,9 @@ require.config({
     uiRouter: { deps: ['angular'] },
     uiBootstrap: { deps: ['angular'] },
     uiutils: { deps: ['angular'] },
-    ngResource: { deps: ['angular']}
+    ngResource: { deps: ['angular']},
+    xml2json: {exports: 'X2JS'}
+
   },
 
   priority: [
@@ -42,6 +46,10 @@ require([
     'account/account.module',
     'home/home.module',
     'admin/admin.module',
+//  MINA SIDOR!!
+    'swipe/swipe.module',
+    'loggswipe/loggswipe.module',
+    'card/card.module',
     'test/test.module'
   ],
 

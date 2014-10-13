@@ -1,26 +1,55 @@
-define(['xml2json', 'uiBootstrap'], function () { 
+define(['xml2json', 'uiBootstrap'], function () {
 
-  function mvLoggswipeCtrl($location, mvLoggswipe){
+  function mvLoggswipeCtrl($scope, $location, mvLoggswipe) {
     'use strict';
     var vm = this;
-
-    vm.find = function() {
-     mvLoggswipe.query(function(loggswipes) {
-        vm.loggswipes = loggswipes;
-  //      xml(loggswipes);
-      });
-    };
+    vm.currentPage = vm.pageChanged;
+    vm.maxSize = 500;
+    vm.itemsPerPage = 40;
+    //  vm.bigTotalItems = 175;
+//    vm.bigCurrentPage = 1;
     
+    vm.pageChanged = function () {
+      vm.currentPage = vm.currentPage;
+      console.log('Page changed to: ' + vm.currentPage)
+      console.log(vm.filteredLoggswipes)
+      
+      };
+    
+    mvLoggswipe.query(function (loggswipes) {
+      vm.loggswipes = loggswipes;
+      
+      
+//      vm.loggswipes.$promise.then(function () {
+        vm.totalItems = vm.loggswipes.length;
+        
+        $scope.$watch('currentPage + itemsPerPage', function () {
+          var begin = ((vm.currentPage -1) * vm.itemsPerPage),
+            end = begin + vm.itemsPerPage;
+          console.log(begin)
+          console.log(end)
+          console.log(vm.totalItems)
+
+          vm.filteredLoggswipes = vm.loggswipes.slice(begin, end);
+          console.log(vm.filteredLoggswipes)
+        });
+      return vm.filteredLoggswipes;
+
+      //      xml(loggswipes);
+    });
+
     // Funktion för att ladda ner Loggswipes till hårdisk. 
-     vm.getloggswipe = function () {  
+    vm.getloggswipe = function () {
       //Create x2js instance with default config
       var x2js = new X2JS();
-      var json = { loggswipes : vm.loggswipes };
+      var json = {
+        loggswipes: vm.loggswipes
+      };
       var xmlDocStr = x2js.json2xml_str(json);
       var filename = "nisse.xml";
       download(filename, xmlDocStr);
     }
-   
+
     function download(filename, text) {
       var pom = document.createElement('a');
       var octet = 'data:text/plain;charset=utf-8,';
@@ -28,30 +57,12 @@ define(['xml2json', 'uiBootstrap'], function () {
       pom.setAttribute('download', filename);
       pom.click();
     }
-    
-    // Pagination för att dela upp LoggSwipe till flera sidor.
-    vm.loggpage = function () {
-      vm.totalItems = 10;
-      vm.currentPage = 4;
+  };
+  // Funktion för att trigga Skrivaren för att skriva ut DOM
 
-      vm.setPage = function (pageNo) {
-        vm.currentPage = pageNo;
-      };
-
-      vm.pageChanged = function() {
-        console.log('Page changed to: ' + vm.currentPage);
-      };
-
-      vm.maxSize = 5;
-      vm.bigTotalItems = 175;
-      vm.bigCurrentPage = 1;
-    }
-    
-    // Funktion för att trigga Skrivaren för att skriva ut DOM
-  }
-      $state.get().forEach(function (state) {
-        console.log(state.name);
-          })
+  //      $state.get().forEach(function (state) {
+  //        console.log(state.name);
+  //          })
 
   return mvLoggswipeCtrl;
 });

@@ -12,7 +12,7 @@ define([
           templateUrl: '/app/swipe/swipe.html',
           controller:  'mvSwipeCtrl',
           controllerAs: 'vm',
-          resolve:     routeRoleChecks.admin
+          label: 'Swipe'
         })
 
     })
