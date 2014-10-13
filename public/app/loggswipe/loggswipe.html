@@ -1,4 +1,6 @@
 <div data-ng-init="vm.find()">
+<div ng-controller="vm.loggpage">
+<pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination></div>
     
 <div class="panel panel-primary">
     <div class="panel-heading">Swipes</div>
@@ -19,4 +21,5 @@
 </div>
 </div>
 <button class="btn btn-xm btn-danger" ng-click="vm.getloggswipe()">Hämta Logg</button>
+<button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> Print</button>
 </div>
