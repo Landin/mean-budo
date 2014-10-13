@@ -9,8 +9,7 @@ require.config({
     uiBootstrap: '../vendor/angular-bootstrap/ui-bootstrap-tpls.min',
     jquery : '../vendor/jquery/dist/jquery.min',
     toastr: '../vendor/toastr/toastr.min',
-    uiutils: '/vendor/ui-utils/ui-utils.min',
-    xml2json: '../vendor/x2js/xml2json'
+    uiutils: '/vendor/ui-utils/ui-utils.min'
   },
 
   shim: {
@@ -21,8 +20,7 @@ require.config({
     uiRouter: { deps: ['angular'] },
     uiBootstrap: { deps: ['angular'] },
     uiutils: { deps: ['angular'] },
-    ngResource: { deps: ['angular']},
-    xml2json: {exports: 'X2JS'}
+    ngResource: { deps: ['angular']}
   },
 
   priority: [
@@ -44,9 +42,7 @@ require([
     'account/account.module',
     'home/home.module',
     'admin/admin.module',
-    'card/card.module',
-    'swipe/swipe.module',
-    'loggswipe/loggswipe.module'
+    'test/test.module'
   ],
 
 // Bootstrap
