@@ -3,39 +3,25 @@ define(['xml2json', 'uiBootstrap'], function () {
   function mvLoggswipeCtrl($scope, $location, mvLoggswipe) {
     'use strict';
     var vm = this;
-    vm.currentPage = vm.pageChanged;
-    vm.maxSize = 500;
-    vm.itemsPerPage = 40;
-    //  vm.bigTotalItems = 175;
-//    vm.bigCurrentPage = 1;
+    vm.currentPage = 1;
+    vm.maxPageToShow = 5;
+    vm.itemsPerPage = 20;
     
     vm.pageChanged = function () {
-      vm.currentPage = vm.currentPage;
-      console.log('Page changed to: ' + vm.currentPage)
-      console.log(vm.filteredLoggswipes)
-      
+      var begin = ((vm.currentPage -1) * vm.itemsPerPage);
+      var end = begin + vm.itemsPerPage;
+      vm.filtusers = vm.users.slice(begin, end)
       };
     
+    function getLoggswipe() {
     mvLoggswipe.query(function (loggswipes) {
       vm.loggswipes = loggswipes;
+      vm.totalItems = vm.loggswipes.lenght;
+	});
+    vm.setPage = function(pageNum) {
+	vm.currentPage = pageNum;
+    };
       
-      
-//      vm.loggswipes.$promise.then(function () {
-        vm.totalItems = vm.loggswipes.length;
-        
-        $scope.$watch('currentPage + itemsPerPage', function () {
-          var begin = ((vm.currentPage -1) * vm.itemsPerPage),
-            end = begin + vm.itemsPerPage;
-          console.log(begin)
-          console.log(end)
-          console.log(vm.totalItems)
-
-          vm.filteredLoggswipes = vm.loggswipes.slice(begin, end);
-          console.log(vm.filteredLoggswipes)
-        });
-      return vm.filteredLoggswipes;
-
-      //      xml(loggswipes);
     });
 
     // Funktion för att ladda ner Loggswipes till hårdisk. 
@@ -58,6 +44,7 @@ define(['xml2json', 'uiBootstrap'], function () {
       pom.click();
     }
   };
+
   // Funktion för att trigga Skrivaren för att skriva ut DOM
 
   //      $state.get().forEach(function (state) {

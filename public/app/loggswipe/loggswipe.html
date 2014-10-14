@@ -1,6 +1,7 @@
-<div data-ng-init="vm.currentPage=[3]">
-
-<pagination total-items="vm.totalItems" ng-model="vm.currentPage" ng-change="vm.pageChanged()"></pagination>
+<pagination total-items="vm.totalItems",
+	    ng-model="vm.currentPage",
+	    ng-change="vm.pageChanged()">
+</pagination>
 
 sida:{{vm.currentPage}}Antal/sida:{{vm.itemsPerPage}}Total:{{vm.totalItems}}</div>  
 
@@ -14,7 +15,7 @@ sida:{{vm.currentPage}}Antal/sida:{{vm.itemsPerPage}}Total:{{vm.totalItems}}</di
             <th>Fnamn</th>
             <th>Enamn</th>
         </tr>
-        <tr ng-repeat="loggswipe in vm.loggswipes">
+        <tr ng-repeat="loggswipe in vm.filtloggswipes">
             <td>{{loggswipe.rfid}}</td>
             <td>{{loggswipe.fnamn}}</td>
             <td>{{loggswipe.enamn}}</td>
@@ -24,4 +25,3 @@ sida:{{vm.currentPage}}Antal/sida:{{vm.itemsPerPage}}Total:{{vm.totalItems}}</di
 </div>
 <button class="btn btn-xm btn-danger" ng-click="vm.getloggswipe()">Hämta Logg</button>
 <button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> Print</button>
-</div>
