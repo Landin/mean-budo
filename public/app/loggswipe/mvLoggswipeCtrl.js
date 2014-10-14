@@ -5,27 +5,31 @@ define(['xml2json', 'uiBootstrap'], function () {
     var vm = this;
     vm.currentPage = 1;
     vm.maxPageToShow = 5;
-    vm.itemsPerPage = 20;
-    
-    vm.pageChanged = function () {
-      var begin = ((vm.currentPage -1) * vm.itemsPerPage);
-      var end = begin + vm.itemsPerPage;
-      vm.filtusers = vm.users.slice(begin, end)
-      };
-    
-    function getLoggswipe() {
-    mvLoggswipe.query(function (loggswipes) {
-      vm.loggswipes = loggswipes;
-      vm.totalItems = vm.loggswipes.lenght;
-	});
-    vm.setPage = function(pageNum) {
-	vm.currentPage = pageNum;
-    };
-      
-    });
+    vm.itemsPerPage = 10;
+    getLoggswipe();
 
+    vm.pageChanged = function () {
+      var begin = ((vm.currentPage - 1) * vm.itemsPerPage);
+      var end = begin + vm.itemsPerPage;
+      vm.filtloggswipes = vm.loggswipes.slice(begin, end)
+      
+    };
+
+    function getLoggswipe() {
+      mvLoggswipe.query(function (loggswipes) {
+        vm.loggswipes = loggswipes;
+        vm.totalItems = vm.loggswipes.length;
+        vm.pageChanged();
+        
+      });
+    };
+    
+    vm.setPage = function (pageNum) {
+      vm.currentPage = pageNum;
+    };
+    
     // Funktion för att ladda ner Loggswipes till hårdisk. 
-    vm.getloggswipe = function () {
+    vm.downloadloggswipe = function () {
       //Create x2js instance with default config
       var x2js = new X2JS();
       var json = {
@@ -46,10 +50,6 @@ define(['xml2json', 'uiBootstrap'], function () {
   };
 
   // Funktion för att trigga Skrivaren för att skriva ut DOM
-
-  //      $state.get().forEach(function (state) {
-  //        console.log(state.name);
-  //          })
 
   return mvLoggswipeCtrl;
 });

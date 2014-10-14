@@ -1,7 +1,4 @@
-<pagination total-items="vm.totalItems",
-	    ng-model="vm.currentPage",
-	    ng-change="vm.pageChanged()">
-</pagination>
+
 
 sida:{{vm.currentPage}}Antal/sida:{{vm.itemsPerPage}}Total:{{vm.totalItems}}</div>  
 
@@ -19,9 +16,19 @@ sida:{{vm.currentPage}}Antal/sida:{{vm.itemsPerPage}}Total:{{vm.totalItems}}</di
             <td>{{loggswipe.rfid}}</td>
             <td>{{loggswipe.fnamn}}</td>
             <td>{{loggswipe.enamn}}</td>
+            
         </tr>        
 </table>
 </div>
 </div>
-<button class="btn btn-xm btn-danger" ng-click="vm.getloggswipe()">Hämta Logg</button>
+
+<pagination total-items="vm.totalItems"
+	    ng-model="vm.currentPage"
+	    ng-change="vm.pageChanged()"
+	    max-size="vm.maxPageToShow"
+	    items-per-page="vm.itemsPerPage">
+</pagination>
+
+<button class="btn btn-xm btn-danger" ng-click="vm.downloadloggswipe()">Hämta Logg</button>
+
 <button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> Print</button>
