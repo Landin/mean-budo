@@ -38,11 +38,6 @@ require.config({
 });
 
 require([
-//  Budokan <
-    'swipe/swipe.module',
-    'loggswipe/loggswipe.module',
-    'card/card.module',
-//  Budokan >
     'angular',
     'app',
     'ngResource',
@@ -53,6 +48,11 @@ require([
     'account/account.module',
     'home/home.module',
     'admin/admin.module',
+//  Budokan <
+    'swipe/swipe.module',
+    'loggswipe/loggswipe.module',
+    'card/card.module',
+//  Budokan >
     'todo/todo.module'
   ],
 
