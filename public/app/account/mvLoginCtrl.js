@@ -1,6 +1,6 @@
 define([], function () {
 
-  function mvNavbarLoginCtrl(mvIdentity, mvNotifier, mvAuth, $location) {
+  function mvLoginCtrl(mvIdentity, mvNotifier, mvAuth, $location) {
     var vm = this;
     vm.identity = mvIdentity;
 
@@ -16,13 +16,13 @@ define([], function () {
 
     vm.signout = function () {
       mvAuth.logoutUser().then(function () {
-        vm.username = "";
-        vm.password = "";
+        vm.username = '';
+        vm.password = '';
         mvNotifier.notify('Du har loggat ut!');
         $location.path('/');
-      })
-    }
+      });
+    };
   }
 
-  return mvNavbarLoginCtrl;
+  return mvLoginCtrl;
 });

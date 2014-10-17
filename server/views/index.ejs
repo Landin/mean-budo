@@ -16,13 +16,13 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Budokan</a>
     </div>
-    <div class="navbar-collapse collapse" ng-controller="mvNavbarCtrl as navbar">
-      <ul class="nav navbar-nav" ng-repeat="item in navbar.items | orderBy:ordering">
-        <li ng-class="{active: (navbar.location == item.url)}">
-          <a ui-sref="{{item.name}}">{{item.text}}</a>
+    <div class="navbar-collapse collapse" data-ng-controller="mvNavbarCtrl as navbar">
+      <ul class="nav navbar-nav" data-ng-repeat="item in navbar.items | orderBy:ordering">
+        <li data-ng-class="{active: (navbar.location == item.url)}" ng-cloak>
+          <a data-ui-sref="{{item.name}}">{{item.text}}</a>
         </li>
       </ul>
-      <div ng-include="'/app/account/navbar-login.html'"></div>
+      <div data-ng-include="'/app/account/navbar-login.html'"></div>
     </div>
   </div>
 </div>
@@ -34,8 +34,6 @@
 <footer class="container text-center">
   <p>&copy; 2014 MultiVision Corp Internation al Ltd.</p>
 </footer>
-
-<script>window.mvdata=<%-JSON.stringify(mvdata)%></script>
 
 </body>
 </html>

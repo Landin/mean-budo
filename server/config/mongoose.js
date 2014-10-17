@@ -2,6 +2,7 @@ var mongoose = require('mongoose'),
     userModel = require('../models/User'),
     cardModel = require('../models/Card'),
     loggswipeModel = require('../models/Loggswipe');
+    todoModel = require('../models/Todo');
 
 module.exports = function(config) {
   mongoose.connect(config.db);
@@ -12,5 +13,5 @@ module.exports = function(config) {
   });
 
   userModel.createDefaultUsers();
-
+  todoModel.createDefaultTodos();
 };
