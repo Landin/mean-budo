@@ -1,4 +1,4 @@
-define(['xml2json', 'uiBootstrap'], function () {
+define(['uiBootstrap'], function () {
 
   function mvLoggswipeCtrl($scope, $location, mvLoggswipe) {
     'use strict';

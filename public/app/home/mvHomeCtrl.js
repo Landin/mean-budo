@@ -1,4 +1,4 @@
-define(['xml2json'], function () {
+define([], function () {
 
   function mvHomeCtrl($scope) {
 
