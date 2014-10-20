@@ -10,22 +10,27 @@
             <th>Fnamn</th>
             <th>Enamn</th>
         </tr>
-        <tr ng-repeat="loggswipe in vm.filtloggswipes">
+        <tr ng-repeat="loggswipe in vm.loggswipes">
             <td>{{loggswipe.rfid}}</td>
             <td>{{loggswipe.fnamn}}</td>
             <td>{{loggswipe.enamn}}</td>
-            
         </tr>        
 </table>
 </div>
 </div>
 
 <pagination total-items="vm.totalItems"
-	    ng-model="vm.currentPage"
-	    ng-change="vm.pageChanged()"
-	    max-size="vm.maxPageToShow"
-	    items-per-page="vm.itemsPerPage">
+	          items-per-page="vm.itemsPerPage"
+      	    ng-model="vm.currentPage"
+	          ng-change="vm.pageChanged()"
+      	    max-size="vm.maxPageToShow">
 </pagination>
+
+<div class="col-lg-6">
+	<div class="input-group">
+		<input data-ng-model="vm.searchText" data-ng-change="vm.pageChanged()" placeholder="Sök.." class="form-control" autofocus/>
+	</div>
+</div>
 
 <button class="btn btn-xm btn-danger" ng-click="vm.downloadloggswipe()">Hämta Logg</button>
 
