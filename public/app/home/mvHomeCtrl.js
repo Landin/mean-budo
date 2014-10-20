@@ -7,8 +7,8 @@ define([], function () {
       { name: 'Ruby', featured: true, published: new Date('2014-02-01') },
       { name: 'Python', featured: true, published: new Date('2014-03-01') }
     ]
-    
-    $scope.getcourses = function (){  
+
+    $scope.getcourses = function (){
       //Create x2js instance with default config
       var x2js = new X2JS();
       var json = { courses : $scope.courses };
@@ -16,7 +16,7 @@ define([], function () {
       var octet = "data:application/octet-stream,"
       var uriContent = octet + encodeURIComponent(xmlDocStr);
       location.href = (uriContent);
-    }    
+    }
   }
 
   return mvHomeCtrl;
