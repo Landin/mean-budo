@@ -3,7 +3,7 @@ define([], function () {
   function mvFilter($filter) {
 
     var service = {
-      sok: sok,
+            sok: sok,
 			paginera: paginera
     };
 
@@ -13,9 +13,10 @@ define([], function () {
 		
 		function paginera (loggswipes, currentPage, itemsPerPage) {
 			var begin = ((currentPage - 1) * itemsPerPage);
-      var end = begin + itemsPerPage;
-      return loggswipes.slice(begin, end);
+            var end = begin + itemsPerPage;
+            return loggswipes.slice(begin, end);
 		};
+
 		
     return service;
   }
