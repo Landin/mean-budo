@@ -21,9 +21,24 @@ define(['uiBootstrap'], function () {
       vm.totalItems = searchdata.length;
 			vm.loggswipes = mvFilter.paginera(searchdata, vm.currentPage, vm.itemsPerPage);
     };
+    
+    vm.dateChanged = function () {
+      vm.searchText = vm.dt;
+//      vm.dt.format = ['yyyy/MM/dd']; 
+      console.log(vm.dt)
+    }
 
     vm.setPage = function (pageNum) {
       vm.currentPage = pageNum;
+    };
+  
+    vm.today = function() {
+      vm.dt = new Date();
+    };
+    vm.today();
+
+    vm.clear = function () {
+      vm.dt = null;
     };
     
     // Funktion för att ladda ner Loggswipes till hårdisk. 

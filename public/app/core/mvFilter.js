@@ -16,7 +16,6 @@ define([], function () {
             var end = begin + itemsPerPage;
             return loggswipes.slice(begin, end);
 		};
-
 		
     return service;
   }

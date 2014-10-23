@@ -32,6 +32,10 @@
 		<input data-ng-model="vm.searchText" data-ng-change="vm.pageChanged()" placeholder="Sök.." class="form-control" autofocus/>
 	</div>
 </div>
+<h4>{{vm.dt | date:"yyyy-MM-dd"}}</h4>
+    <div style="display:inline-block; min-height:290px;">
+        <datepicker data-ng-model="vm.dt" data-ng-change="vm.dateChanged()" min-date="vm.minDate" show-weeks="true" class="well well-sm"></datepicker>
+    </div>
 
 <button class="btn btn-xm btn-danger" ng-click="vm.downloadloggswipe()">Hämta Logg</button>
 
